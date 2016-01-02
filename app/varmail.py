@@ -5,10 +5,11 @@ from api import api
 from flask import Flask
 import os
 import premailer
+import logging
 
 app = Flask(__name__)
 
-#app.config['SERVER_NAME'] = os.environ.get('SERVER_NAME')
+app.config['SERVER_NAME'] = os.environ.get('SERVER_NAME')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
@@ -27,3 +28,8 @@ if __name__ == '__main__':
     print "Running in debug mode"
     app.debug = True
     app.run()
+else:
+    handler = logging.StreamHandler()
+    handler.setLevel(logging.INFO)
+    app.logger.setLevel(logging.INFO)
+    app.logger.addHandler(handler)

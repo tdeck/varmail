@@ -21,9 +21,11 @@ def send_mail(sender_domain, sender_name, sender_account, recipient, subject, te
 
     print "Sending", msg_data
 
-    result = requests.post(
+    resp = requests.post(
         'https://api.mailgun.net/v3/{}/messages'.format(sender_domain),
         auth=("api", mailgun_key),
         data=msg_data
     )
-    return 'mailgun: ' + result.json()['id']
+    resp.raise_for_status()
+
+    return 'mailgun: ' + resp.json()['id']
