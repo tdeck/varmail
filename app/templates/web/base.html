@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Varmail - The simple email alert API</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='skeleton.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="two columns brand"><span class="light">/</span>var<span class="light">/</span>mail</div>
+        {% block topbar %}{% endblock %}
+      </div>
+      <hr>
+    </header>
+    <main class="container">
+      {% block main %}{% endblock %}
+    </main>
+    <footer class="container">
+      <hr>
+    </footer>
+  </body>
+</html>

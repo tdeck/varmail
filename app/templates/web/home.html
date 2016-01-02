@@ -1,0 +1,30 @@
+{% extends "web/base.html" %}
+{% block main %}
+  <div class="row">
+    <div class="six offset-by-three columns">
+      
+      <h2>POST emails<br>
+      right to your inbox</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="six offset-by-three columns">
+      <p class="lead">
+        <span class="brand">Varmail</span> lets your app write home without fuss.
+      </p>
+      <ul class="benefits">
+        <li>Setup takes 30 seconds</li>
+        <li>Free as in beer</li>
+        <li>Works anywhere HTTP does (including shell scripts)</li>
+      </ul>
+    </div>
+  </div>
+  <form class="row" method="POST" action="/start">
+    <div class="four offset-by-three columns">
+      <input class="u-full-width" type="email" id="email" name="email" placeholder="you@example.com">
+    </div>
+    <div class="two columns">
+      <input class="u-full-width button-primary" type="submit" value="Get started">
+    </div>
+  </form>
+{% endblock %}

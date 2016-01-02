@@ -1,0 +1,6 @@
+env
+.*
+*.pyc
+*.log
+!.gitignore
+!.travis.yml

@@ -1,0 +1,68 @@
+.brand {
+  font-family: "Lucida Console", Monaco, monospace;
+  color: #666;
+}
+
+div.brand {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.light {
+  opacity: 0.5;
+}
+
+.lead {
+  font-size: 2rem;
+}
+
+ul.benefits {
+  font-size: 1.5rem;
+}
+
+input,button {
+  font-size: 1.2rem;
+}
+
+input[type=submit],button {
+  font-size: 1.0rem;
+  line-height: 1.0rem;
+}
+
+.email {
+  font-size: 2rem;
+  font-weight: 200;
+  color: #555;
+}
+
+caption, .caption {
+  display: block;
+  text-align: center;
+  font-size: 2.0rem;
+  font-weight: normal;
+  color: #333;
+}
+
+tr {
+  cursor: pointer;
+}
+
+tr.selected {
+  background-color: #ddd;
+}
+
+tbody td:last_of_type {
+  text-align: center;
+}
+
+.tutorial {
+  font-size: 1.4rem;
+}
+
+.endpt-token {
+  background-color: #ddd;
+}
+
+.reqid {
+  background-color: #ddd;
+}

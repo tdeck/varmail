@@ -1,0 +1,68 @@
+{% extends 'web/base.html' %}
+{% block topbar %}
+  <div class="email four offset-by-six columns">{{ email }}</div>
+{% endblock %}
+{% block main %}
+  <section class="five columns">
+    <table>
+      <caption>Mail endpoints</caption>
+      <thead>
+        <tr>
+          <th class="u-full-width">Name</th>
+          <th>Token</th>
+          <th>Enabled</th>
+        </tr>
+      </thead>
+      <tbody id="endpoint-list">
+      </tbody>
+    </table>
+
+    <label for="new-endpoint-name">Create a new mail endpoint</label>
+    <div class="nine columns">
+      <input type="text" class="u-full-width" id="new-endpoint-name" placeholder="a descriptive name">
+    </div>
+    <div class="two columns">
+      <button class="u-full-width button-primary" id="create-button">+</button>
+    </div>
+  </section>
+  <section class="seven columns">
+    <div class="caption">.</div>
+    <div class="tutorial">
+      <p>
+        Endpoint URL:<code>https://varmail.me/<span class="endpt-token">&lt;token&gt;<span></code>
+      </p>
+
+      <p>
+        Form POST example:
+        <pre><code>curl https://varmail.me/<span class="endpt-token">&lt;token&gt;</span> \
+          --data-urlencode 'subject=Feedback form' \
+          --data-urlencode 'text=Great app...' \
+          --data-urlencode '_reqid=<span class="reqid">1234</span>'</code></pre>
+      </p>
+
+      <p>
+        JSON POST example:
+        <pre><code>curl https://varmail.me/<span class="endpt-token">&lt;token&gt;</span> \
+  -H 'Content-type: application/json' \
+  -d '{
+    "subject": "Varmail is fun!",
+    "text": "Some message content...",
+    "_reqid": "<span class="reqid">1234</span>"
+  }'</code></pre>
+      </p>
+
+      <p>
+        In a pipeline:
+        <pre><code>df -h | curl \
+  'https://varmail.me/<span class="endpt-token">&lt;token&gt;</span>?subject=Disk+use' \
+  -H 'Content-type: text/plain' --data-binary @-</code></pre>
+      </p>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='dashboard.js') }}"></script>
+  <script type="text/javascript">
+    window.endpoints = {{ endpoints|tojson|safe }};
+    showEndpoints();
+  </script>
+{% endblock %}
