@@ -19,16 +19,17 @@ function request(method, url, data, callback) {
 }
 
 // A helper function for creating DOM nodes in a clean way
-function node(tagName, ...children) {
+function node(tagName /*, ...children */) {
   var result = document.createElement(tagName);
 
-  children.forEach(function(child) {
+  for (var i = 1; i < arguments.length; i ++) {
+    var child = arguments[i];
     if (typeof(child) === 'string') {
       result.appendChild(document.createTextNode(child));
     } else {
       result.appendChild(child);
     }
-  });
+  }
 
   return result;
 }

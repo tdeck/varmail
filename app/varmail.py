@@ -9,6 +9,7 @@ import logging
 
 app = Flask(__name__)
 
+app.config['PREFERRED_URL_SCHEME'] = 'https'
 app.config['SERVER_NAME'] = os.environ.get('SERVER_NAME')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
