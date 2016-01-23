@@ -25,6 +25,7 @@ input,button {
 }
 
 input[type=submit],button {
+  min-width: 186px;
   font-size: 1.0rem;
   line-height: 1.0rem;
 }

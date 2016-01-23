@@ -1,20 +1,32 @@
 {% extends "mail/base.html" %}
 {% block content %}
+  <h1>Thanks for trying Varmail!</h1>
   <table>
     <tr>
-      <td>
-        You're ready to start using varmail. Click the link below to activate and begin using your account.
-      
+      <p>
+        Click the link below to activate your account and get started.
+      </p>
+    </tr>
+    <tr>
+      <td align="center">
         <!-- button -->
         <table class="btn-primary" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td>
-              <a href="{{ link }}">Get Started</a>
+              <a href="{{ link }}">My Dashboard</a>
             </td>
           </tr>
         </table>
         <!-- /button -->
       </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+          This link is your personal password. If you lose track of it in the future, you can ask for another one at 
+          <a href="https://varmail.me">https://varmail.me</a>.
+        </p>
+      <td>
     </tr>
   </table>
 {% endblock %}
