@@ -25,6 +25,11 @@ def make_session_permanent():
 
 ui.before_request(make_session_permanent)
 
+def current_user():
+    if 'uid' not in session or session['expiry'] < time():
+        return None
+    return User.query.filter_by(id=session['uid']).first()
+
 def require_user():
     if 'uid' not in session or session['expiry'] < time():
         abort(401)
@@ -35,7 +40,8 @@ def require_user():
 ##############
 @ui.route('/', methods=['GET'])
 def home():
-    return render_template('web/home.html')
+    user = current_user()
+    return render_template('web/home.html', email=user and user.email)
 
 @ui.route('/start', methods=['POST'])
 def start():
@@ -88,6 +94,10 @@ def dashboard():
         endpoints = [present_endpoint(e) for e in user.endpoints]
     )
 
+@ui.route('/logout', methods=['GET'])
+def logout():
+  session.clear()
+  return redirect(url_for('ui.home'))
 
 ############
 # JSON API #

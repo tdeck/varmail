@@ -12,6 +12,14 @@ div.brand {
   opacity: 0.5;
 }
 
+form#login {
+  margin-top: 8px;
+}
+
+form#login input {
+  margin-bottom: 0;
+}
+
 .lead {
   font-size: 2rem;
 }
@@ -20,20 +28,41 @@ ul.benefits {
   font-size: 1.5rem;
 }
 
-input,button {
+input[type=email] {
   font-size: 1.2rem;
 }
 
-input[type=submit],button {
-  min-width: 186px;
+input[type=submit] {
   font-size: 1.0rem;
   line-height: 1.0rem;
 }
 
-.email {
+input#login {
+  min-width: 120px;
+}
+
+input#start {
+  min-width: 186px;
+}
+
+div.whoami {
   font-size: 2rem;
+}
+
+a.email {
   font-weight: 200;
-  color: #555;
+  text-decoration: none;
+}
+
+a.logout {
+  text-align: right;
+  font-weight: 100;
+  text-decoration: none;
+  color: #ccc;
+}
+
+a.logout:hover {
+  color: #999;
 }
 
 caption, .caption {

@@ -1,6 +1,15 @@
 {% extends 'web/base.html' %}
 {% block topbar %}
-  <div class="email four offset-by-six columns">{{ email }}</div>
+  <div class="five offset-by-four columns">
+    <div class="whoami">
+      <a class="email" href="{{ url_for('ui.dashboard') }}">{{ email }}</a>
+    </div>
+  </div>
+  <div class="one columns">
+    <div class="whoami">
+      <a class="logout" href="{{ url_for('ui.logout') }}">log&nbsp;out</a>
+    </div>
+  </div>
 {% endblock %}
 {% block main %}
   <section class="five columns">
