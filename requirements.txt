@@ -2,10 +2,12 @@ cssselect==0.9.1
 cssutils==1.0.1
 Flask==0.10.1
 Flask-Cors==2.1.2
+Flask-Limiter==0.9.1
 Flask-SQLAlchemy==2.1
 gunicorn==19.4.3
 itsdangerous==0.24
 Jinja2==2.8
+limits==1.1
 lxml==3.5.0
 MarkupSafe==0.23
 premailer==2.9.6

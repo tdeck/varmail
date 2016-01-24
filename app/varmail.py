@@ -3,6 +3,7 @@ from ui import ui
 from api import api
 
 from flask import Flask
+from flask_limiter import Limiter
 import os
 import premailer
 import logging
@@ -21,6 +22,11 @@ db.init_app(app)
 @app.template_filter('inline_styles')
 def inline_styles(html):
     return premailer.transform(html)
+
+limiter = Limiter(app, global_limits=['5/second'])
+limiter.limit('100/hour')(ui)
+limiter.limit('10/minute')(api)
+limiter.limit('100/day')(api)
 
 app.register_blueprint(ui)
 app.register_blueprint(api)
