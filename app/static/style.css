@@ -91,6 +91,13 @@ tbody td:last_of_type {
   text-align: center;
 }
 
+small {
+  margin-top: -12px;
+  display: block;
+  color: #666;
+  text-align: right;
+}
+
 .tutorial {
   font-size: 1.4rem;
 }
