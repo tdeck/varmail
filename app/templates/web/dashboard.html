@@ -50,7 +50,7 @@
       </p>
 
       <p>
-        JSON POST example:
+        <h3>JSON POST example:</h3>
         <pre><code>curl https://varmail.me/<span class="endpt-token">&lt;token&gt;</span> \
   -H 'Content-type: application/json' \
   -d '{
@@ -61,7 +61,7 @@
       </p>
 
       <p>
-        In a pipeline:
+        <h3>In a pipeline:</h3>
         <pre><code>df -h | curl \
   'https://varmail.me/<span class="endpt-token">&lt;token&gt;</span>?subject=Disk+use' \
   -H 'Content-type: text/plain' --data-binary @-</code></pre>
