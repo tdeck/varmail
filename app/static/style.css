@@ -66,11 +66,17 @@ a.logout:hover {
 }
 
 caption, .caption {
+  line-height: 1.2;
   display: block;
   text-align: center;
-  font-size: 2.0rem;
+  font-size: 2.2rem;
   font-weight: normal;
   color: #333;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: #222;
 }
 
 tr {
@@ -95,4 +101,24 @@ tbody td:last_of_type {
 
 .reqid {
   background-color: #ddd;
+}
+
+dl {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+dt {
+  clear: left;
+  color: #444;
+  display: inline-block;
+  margin-right: -10ex;
+}
+
+dd {
+  margin-left: 0;
+  display: block;
+  margin-left: 12ex;
+  margin-top: -2.0rem;
 }

@@ -26,14 +26,20 @@
     </div>
   </section>
   <section class="seven columns">
-    <div class="caption">.</div>
+    <h2 class="caption">API usage</h2>
     <div class="tutorial">
-      <p>
-        Endpoint URL:<code>https://varmail.me/<span class="endpt-token">&lt;token&gt;<span></code>
-      </p>
+      Endpoint URL:<code>https://varmail.me/<span class="endpt-token">&lt;token&gt;<span></code>
+      <br>
+      Request Parameters:
+      <dl>
+        <dt><code>subject</code></dt><dd>The email's subject line</dd>
+        <dt><code>text</code></dt><dd>The plain text email body</dd>
+        <dt><code>_reqid</code></dt><dd>(optional) A string of up to 12 characters used for idempotence. <br>Subsequent requests to this endpoint with the same <code>_reqid</code>
+          will be ignored.</dd>
+      </dl>
 
       <p>
-        Form POST example:
+        <h3>Form POST example:</h3>
         <pre><code>curl https://varmail.me/<span class="endpt-token">&lt;token&gt;</span> \
           --data-urlencode 'subject=Feedback form' \
           --data-urlencode 'text=Great app...' \
