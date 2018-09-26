@@ -2,7 +2,7 @@ from models import Endpoint, Message, db
 from mailer import send_mail
 
 from flask import request, current_app, jsonify, abort, Blueprint
-from flask.ext.cors import cross_origin
+from flask_cors import cross_origin
 from sqlalchemy.exc import IntegrityError
 
 api = Blueprint('api', __name__)

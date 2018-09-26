@@ -1,4 +1,4 @@
-from flask.ext.sqlalchemy import SQLAlchemy, event
+from flask_sqlalchemy import SQLAlchemy, event
 import uuid
 import base64
 import datetime
