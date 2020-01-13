@@ -2,5 +2,6 @@ env
 .*
 *.pyc
 *.log
+yoyo.ini
 !.gitignore
 !.travis.yml

@@ -7,6 +7,17 @@ from flask_limiter import Limiter
 import os
 import premailer
 import logging
+import yoyo
+
+app_dir = os.path.dirname(__file__)
+db_url = os.environ.get('DATABASE_URL')
+
+# Run any pending migrations
+backend = yoyo.get_backend(db_url)
+migrations = yoyo.read_migrations(app_dir + '/../migrations')
+
+with backend.lock():
+    backend.apply_migrations(backend.to_apply(migrations))
 
 app = Flask(__name__)
 

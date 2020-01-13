@@ -19,8 +19,6 @@ def send_mail(sender_domain, sender_name, sender_account, recipient, subject, te
     else:
         raise ValueError('Expected html or text body')
 
-    print "Sending", msg_data
-
     resp = requests.post(
         'https://api.mailgun.net/v3/{}/messages'.format(sender_domain),
         auth=("api", mailgun_key),

@@ -68,4 +68,4 @@ class Message(db.Model, TimestampMixin):
 
     reqid = db.Column(db.String(32), nullable=True, default=None)
 
-    idx_endpoint_and_reqid = db.Index(endpoint_id, reqid, unique=True)
+    idx_endpoint_and_reqid = db.Index('idx_endpoint_and_reqid', endpoint_id, reqid, unique=True)
