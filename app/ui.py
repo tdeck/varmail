@@ -82,6 +82,11 @@ def start():
         html=render_template(template, link=link)
     )
 
+    # Count that we sent a login email
+    user.login_count = User.login_count + 1 # increment in SQL
+    db.session.add(user)
+    db.session.commit()
+
     return render_template('web/start.html')
 
 @ui.route('/login/<login_token>', methods=['GET'])

@@ -36,6 +36,7 @@ class User(db.Model, TimestampMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     login_token = db.Column(db.String(22), unique=True)
     signup_ip = db.Column(db.String(255), nullable=True)
+    login_count = db.Column(db.Integer, nullable=False, default=0)
 
     endpoints = db.relationship('Endpoint', backref=db.backref('user'))
 
