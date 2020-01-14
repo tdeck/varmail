@@ -66,7 +66,7 @@ def start():
     link = url_for('ui.login', login_token=user.login_token, _external=True)
     
     send_mail(
-        sender_domain = current_app.config['SERVER_NAME'],
+        sender_domain = current_app.config['MAILGUN_DOMAIN'],
         sender_name = 'Varmail Login',
         sender_account = 'login',
         recipient = email,

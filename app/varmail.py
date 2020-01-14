@@ -23,8 +23,9 @@ app = Flask(__name__)
 
 app.config['PREFERRED_URL_SCHEME'] = 'https'
 app.config['SERVER_NAME'] = os.environ.get('SERVER_NAME')
+app.config['MAILGUN_DOMAIN'] = os.environ.get('MAILGUN_DOMAIN') or os.environ.get('SERVER_NAME')
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 
 db.app = app
 db.init_app(app)

@@ -61,7 +61,7 @@ def post_mail(token):
         db.session.commit()
 
         message.reference_id = send_mail(
-            sender_domain = current_app.config['SERVER_NAME'],
+            sender_domain = current_app.config['MAILGUN_DOMAIN'],
             sender_name = '{} - Varmail'.format(endpoint.name),
             sender_account = 'mailer',
             recipient = endpoint.user.email,
