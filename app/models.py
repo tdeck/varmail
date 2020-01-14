@@ -31,15 +31,17 @@ class TimestampMixin(object):
         event.listen(cls, 'before_insert', cls.create_time)
         event.listen(cls, 'before_update', cls.update_time)
 
-class User(db.Model):
+class User(db.Model, TimestampMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     login_token = db.Column(db.String(22), unique=True)
+    signup_ip = db.Column(db.String(255), nullable=True)
 
     endpoints = db.relationship('Endpoint', backref=db.backref('user'))
 
-    def __init__(self, email):
+    def __init__(self, email, signup_ip=None):
         self.email = email.lower()
+        self.signup_ip = signup_ip
         self.login_token = token()
 
 class Endpoint(db.Model, TimestampMixin):

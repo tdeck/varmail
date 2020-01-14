@@ -35,6 +35,12 @@ def require_user():
         abort(401)
     return User.query.filter_by(id=session['uid']).first_or_404()
 
+def request_ip():
+    return (
+            request.environ.get('HTTP_X_FORWARDED_FOR') or
+            request.environ['REMOTE_ADDR']
+    )
+
 ##############
 # HTML Pages #
 ##############
@@ -58,7 +64,7 @@ def start():
     if user:
         template = 'mail/login.html'
     else:
-        user = User(email)
+        user = User(email, signup_ip=request_ip())
         db.session.add(user)
         db.session.commit()
         template = 'mail/start.html'
