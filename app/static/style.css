@@ -32,6 +32,10 @@ input[type=email] {
   font-size: 1.2rem;
 }
 
+input[type=password] {
+  display: none !important;
+}
+
 input[type=submit] {
   font-size: 1.0rem;
   line-height: 1.0rem;

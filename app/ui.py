@@ -54,6 +54,14 @@ def start():
     if 'email' not in request.form:
         return abort(400)
 
+    if request.form.get('password') != '':
+        # Password is a fake field that I hope bots will fill out
+        print "IP {} tried to submit password {}".format(
+            request_ip(),
+            request.form.get('password')
+        )
+        return abort(403) # Forbidden
+
     email = request.form['email']
     if not validate_email(email):
         return abort(422)
@@ -72,7 +80,7 @@ def start():
         template = 'mail/start.html'
 
     link = url_for('ui.login', login_token=user.login_token, _external=True)
-    
+
     send_mail(
         sender_domain = current_app.config['MAILGUN_DOMAIN'],
         sender_name = 'Varmail Login',

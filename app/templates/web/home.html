@@ -6,6 +6,7 @@
       <form id="login" method="POST" action="/start">
           <div class="four offset-by-four columns">
               <input class="u-full-width" type="email" id="email" name="email" placeholder="you@example.com">
+              <input type="password" name="password">{# Fake hidden password input to detect bots #}
           </div>
           <div class="two columns">
               <input class="u-full-width button" id="login" type="submit" value="Log in">
@@ -34,6 +35,7 @@
   <form class="row" method="POST" action="/start">
     <div class="four offset-by-three columns">
       <input class="u-full-width" type="email" id="email" name="email" placeholder="you@example.com">
+      <input type="password" name="password">{# Fake hidden password input to detect bots #}
       <small>
           To avoid passwords and spam, Varmail emails you a login link.<br>
           Your email will never be sold or shared with anyone.
