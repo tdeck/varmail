@@ -5,11 +5,11 @@
   {% else %}
       <form id="login" method="POST" action="/start">
           <div class="four offset-by-four columns">
-              <input class="u-full-width" type="email" id="email" name="email" placeholder="you@example.com">
+              <input class="u-full-width" type="email" name="email" placeholder="you@example.com">
               <input type="password" name="password">{# Fake hidden password input to detect bots #}
           </div>
           <div class="two columns">
-              <input class="u-full-width button" id="login" type="submit" value="Log in">
+              <input class="u-full-width button" type="submit" value="Log in">
           </div>
       </form>
   {% endif %}
@@ -34,7 +34,7 @@
   </div>
   <form class="row" method="POST" action="/start">
     <div class="four offset-by-three columns">
-      <input class="u-full-width" type="email" id="email" name="email" placeholder="you@example.com">
+      <input class="u-full-width" type="email" name="email" placeholder="you@example.com">
       <input type="password" name="password">{# Fake hidden password input to detect bots #}
       <small>
           To avoid passwords and spam, Varmail emails you a login link.<br>
@@ -61,4 +61,11 @@
   }'</code></pre></li>
       </ol>
   </div>
+  <script type="text/javascript">
+    var pwds = document.querySelectorAll('input[type=password]');
+    for (var i = 0; i < pwds.length; ++ i) {
+      pwds[i].value = '5d7660d3-c18e-46f7-ad75-1103875e6d5c';
+        console.log(pwds[i]);
+    }
+  </script>
 {% endblock %}

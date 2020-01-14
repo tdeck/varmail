@@ -16,6 +16,7 @@ from validate_email import validate_email
 from time import time
 
 SESSION_LIFETIME_S = 259200 # 3 days
+EXPECTED_PASSWORD = '5d7660d3-c18e-46f7-ad75-1103875e6d5c'
 
 ui = Blueprint('ui', __name__)
 
@@ -54,8 +55,10 @@ def start():
     if 'email' not in request.form:
         return abort(400)
 
-    if request.form.get('password') != '':
-        # Password is a fake field that I hope bots will fill out
+    if request.form.get('password') != EXPECTED_PASSWORD:
+        # Password is a fake field that's set to a constant value in JS. The
+        # hope is that bots will either stuff it with something or leave it
+        # out because they won't a full headless browser
         print "IP {} tried to submit password {}".format(
             request_ip(),
             request.form.get('password')
