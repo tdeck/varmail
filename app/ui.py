@@ -62,11 +62,13 @@ def start():
 
     user = User.query.filter_by(email=email).first()
     if user:
+        subject = 'Your login link'
         template = 'mail/login.html'
     else:
         user = User(email, signup_ip=request_ip())
         db.session.add(user)
         db.session.commit()
+        subject = 'Get started with varmail'
         template = 'mail/start.html'
 
     link = url_for('ui.login', login_token=user.login_token, _external=True)
@@ -76,7 +78,7 @@ def start():
         sender_name = 'Varmail Login',
         sender_account = 'login',
         recipient = email,
-        subject = 'Get started with varmail',
+        subject = subject,
         html=render_template(template, link=link)
     )
 
