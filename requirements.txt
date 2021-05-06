@@ -4,7 +4,7 @@ click==6.7
 cssselect==0.9.1
 cssutils==1.0.1
 Flask==1.0.2
-Flask-Cors==3.0.6
+Flask-Cors==3.0.9
 Flask-Limiter==0.9.1
 Flask-SQLAlchemy==2.3.2
 gunicorn==19.5.0
