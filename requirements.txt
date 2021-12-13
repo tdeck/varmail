@@ -13,7 +13,7 @@ iniherit==0.3.9
 itsdangerous==0.24
 Jinja2==2.11.3
 limits==1.1
-lxml==4.6.3
+lxml==4.6.5
 MarkupSafe==0.23
 premailer==2.9.6
 psycopg2==2.7.5
